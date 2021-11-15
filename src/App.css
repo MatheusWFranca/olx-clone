@@ -7,3 +7,11 @@
   font-family: 'Poppins', sans-serif;
   background-color: #eee;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
