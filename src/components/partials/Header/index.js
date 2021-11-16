@@ -24,6 +24,9 @@ function Header() {
                 <li>
                   <Link to="/logout">Sair</Link>
                 </li>
+                <Link className="button" to="/post-an-ad">
+                  Anunciar
+                </Link>
               </>
             ) : (
               <>
@@ -33,13 +36,12 @@ function Header() {
                 <li>
                   <Link to="/signup">Cadastrar</Link>
                 </li>
+                <Link className="button" to="/signin">
+                  Anunciar
+                </Link>
               </>
             )}
-            <li>
-              <Link className="button" to="/post-an-ad">
-                Anunciar
-              </Link>
-            </li>
+            <li></li>
           </ul>
         </nav>
       </div>
