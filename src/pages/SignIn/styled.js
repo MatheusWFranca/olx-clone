@@ -4,7 +4,7 @@ export const PageArea = styled.div`
   .area {
     display: flex;
     align-items: center;
-    padding: 3rem;
+    padding: 2rem;
     max-width: 50rem;
 
     .area--title {
@@ -29,7 +29,9 @@ export const PageArea = styled.div`
         width: 1.6rem;
       }
     }
+
     button {
+      width: 100%;
       font-size: 1.4rem;
       padding: 1rem 3rem;
     }
