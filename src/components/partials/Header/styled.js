@@ -48,6 +48,7 @@ export const HeaderArea = styled.header`
       }
 
       &.button {
+        font-size: 1.4rem;
         display: block;
         color: #fff;
         background: #e80;
@@ -60,6 +61,19 @@ export const HeaderArea = styled.header`
       &.button:hover {
         transform: scale(1.1);
       }
+    }
+
+    .sair {
+      padding: 1rem 0.5rem;
+      border: 0;
+      background: none;
+      box-shadow: none;
+      color: #000;
+    }
+
+    .sair:hover {
+      color: #e80;
+      transform: scale(1);
     }
   }
 `
