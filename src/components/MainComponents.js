@@ -10,3 +10,8 @@ export const PageContainer = styled.div`
 export const PageTitle = styled.h1`
   font-size: 2.7rem;
 `
+
+export const ErrorMessage = styled.span`
+  margin: 1rem;
+  color: tomato;
+`

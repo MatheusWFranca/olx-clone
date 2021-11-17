@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { PageArea } from './styled'
-import { PageContainer, PageTitle } from '../../components/MainComponents'
 import useApi from '../../helpers/OlxApi'
 import { doLogin } from '../../helpers/AuthHandler'
+
+import {
+  PageContainer,
+  PageTitle,
+  ErrorMessage,
+} from '../../components/MainComponents'
 
 export default function SignIn() {
   const api = useApi
@@ -31,6 +36,7 @@ export default function SignIn() {
     <PageContainer>
       <PageTitle>Login</PageTitle>
       <PageArea>
+        {error ? <ErrorMessage /> : ''}
         <form onSubmit={handleSubmit}>
           <label className="area">
             <div className="area--title">Email</div>
@@ -40,6 +46,7 @@ export default function SignIn() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={disabled}
+                required
               />
             </div>
           </label>
@@ -52,6 +59,7 @@ export default function SignIn() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={disabled}
+                required
               />
             </div>
           </label>
@@ -59,7 +67,12 @@ export default function SignIn() {
           <label className="area">
             <div className="area--title">Lembrar Senha</div>
             <div className="area--input">
-              <input type="checkbox" disabled={disabled} />
+              <input
+                type="checkbox"
+                disabled={disabled}
+                checked={rememberPassword}
+                onChange={() => setRememberPassword(!rememberPassword)}
+              />
             </div>
           </label>
 
