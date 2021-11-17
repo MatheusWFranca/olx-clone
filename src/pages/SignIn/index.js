@@ -30,13 +30,15 @@ export default function SignIn() {
       doLogin(json.token, rememberPassword)
       window.location.href = '/'
     }
+
+    setDisabled(false)
   }
 
   return (
     <PageContainer>
       <PageTitle>Login</PageTitle>
       <PageArea>
-        {error ? <ErrorMessage /> : ''}
+        {error ? <ErrorMessage>{error}</ErrorMessage> : ''}
         <form onSubmit={handleSubmit}>
           <label className="area">
             <div className="area--title">Email</div>
