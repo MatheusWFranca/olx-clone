@@ -25,24 +25,31 @@ export default function SignIn() {
   useEffect(() => {
     const getStates = async () => {
       const list = await api.getStates()
-      setStateList(list)
+      setStateList([...list])
     }
     getStates()
-  }, [])
+  }, [api])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setDisabled(true)
+    setError('')
 
-    const json = await api.login(email, password)
+    if (password !== confirmPassword) {
+      setError('Senhas não coincidem!')
+      setDisabled(false)
+      return
+    }
+
+    const json = await api.register(name, email, password, stateLocation)
 
     if (json.error) {
       setError(json.error)
+      console.log(json.error)
     } else {
       doLogin(json.token)
       window.location.href = '/'
     }
-
     setDisabled(false)
   }
 
@@ -73,13 +80,12 @@ export default function SignIn() {
                 value={stateLocation}
                 onChange={(e) => setStateLocation(e.target.value)}
               >
-                {stateList.map((index, key) => {
-                  return (
+                 <option ></option>
+                {stateList.map((index, key) => (
                     <option key={key} value={index.id}>
                       {index.name}
                     </option>
-                  )
-                })}
+                ))}
               </select>
             </div>
           </label>
